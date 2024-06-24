@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Item = ({producto, key}) => {
+export const Item = ({producto}) => {
   return (
-    <div className='producto' key={key}>
+    <div className='producto'>
         <img src={producto.imagen} alt={producto.name}/>
         <div>
             <h4>{producto.titulo}</h4>

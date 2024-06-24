@@ -5,26 +5,30 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
 import './main.css'
 import { Nosotros } from './Components/Nosotros/Nosotros';
-
+import { Contacto } from './Components/Contacto/Contacto';
+import { Carrito } from './Components/Carrito/Carrito';
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
   return (
     <MainLayout>
+      <CartProvider>
       <BrowserRouter>
-        <Navbar />
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/productos/:categoria" element={<ItemListContainer />} />
-          <Route path="/productos/" element={<ItemListContainer />} />
-          <Route path="/item/:id" element={<ItemDetailContainer  />} />
-          <Route path='/nosotros' element={<Nosotros />} />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/productos/:categoria" element={<ItemListContainer />} />
+            <Route path="/productos/" element={<ItemListContainer />} />
+            <Route path="/item/:id" element={<ItemDetailContainer  />} />
+            <Route path='/nosotros' element={<Nosotros />} />
+            <Route path='/contacto' element={<Contacto />} />         
+            <Route path='carrito' element={<Carrito />}/>
+          </Routes>
 
-        </Routes>
-
-        {/* <ItemListContainer /> */}
-      </BrowserRouter>
+        </BrowserRouter>
+      </CartProvider>
     </MainLayout>
     
   );
